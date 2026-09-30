@@ -11,7 +11,7 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-Write-Host "`nPublishing 32-bit (x86) XForensics.App..." -ForegroundColor Cyan
-dotnet publish XForensics.App\XForensics.App.csproj -c $Configuration -r win-x86 -o "publish" --self-contained false
+Write-Host "`nPublishing XForensics.App (AnyCPU)..." -ForegroundColor Cyan
+dotnet publish XForensics.App\XForensics.App.csproj -c $Configuration -o "publish" --self-contained false
 
 Write-Host "`n[SUCCESS] XForensics build and publish completed successfully in ./publish" -ForegroundColor Green
