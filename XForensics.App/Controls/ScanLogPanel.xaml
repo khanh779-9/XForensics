@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="XForensics.App.Controls.ScanLogPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border Background="{DynamicResource SurfaceBrush}"
+            BorderBrush="{DynamicResource BorderBrushSoft}"
+            BorderThickness="1"
+            CornerRadius="8"
+            Padding="12">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Top Header & Tabs -->
+            <Grid Grid.Row="0" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <RadioButton x:Name="TabScanLog" Content="Scan Log" IsChecked="True" Click="Tab_Click" Margin="0,0,14,0">
+                        <RadioButton.Template>
+                            <ControlTemplate TargetType="RadioButton">
+                                <Border x:Name="TabBrd" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="2,4" Cursor="Hand">
+                                    <TextBlock x:Name="TabTxt" Text="{TemplateBinding Content}" FontSize="12" FontWeight="SemiBold" Foreground="{DynamicResource MutedTextBrush}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="TabBrd" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                        <Setter TargetName="TabTxt" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="TabTxt" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </RadioButton.Template>
+                    </RadioButton>
+
+                    <RadioButton x:Name="TabPerformance" Content="Performance" Click="Tab_Click">
+                        <RadioButton.Template>
+                            <ControlTemplate TargetType="RadioButton">
+                                <Border x:Name="TabBrd" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="2,4" Cursor="Hand">
+                                    <TextBlock x:Name="TabTxt" Text="{TemplateBinding Content}" FontSize="12" FontWeight="Medium" Foreground="{DynamicResource MutedTextBrush}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="TabBrd" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                        <Setter TargetName="TabTxt" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="TabTxt" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </RadioButton.Template>
+                    </RadioButton>
+                </StackPanel>
+
+                <!-- Clear Button -->
+                <Button Grid.Column="2" Click="Clear_Click" Content="Clear"
+                        FontSize="11" Padding="10,3" Cursor="Hand"/>
+            </Grid>
+
+            <!-- Console Terminal Area -->
+            <Border Grid.Row="1"
+                    Background="{DynamicResource WindowBgBrush}"
+                    BorderBrush="{DynamicResource BorderBrushSoft}"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="10">
+                <ScrollViewer x:Name="LogScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="LogContainer"/>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

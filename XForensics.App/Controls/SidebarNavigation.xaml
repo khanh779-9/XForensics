@@ -1,0 +1,133 @@
+<UserControl x:Class="XForensics.App.Controls.SidebarNavigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctrl="clr-namespace:XForensics.App.Controls"
+             Width="205">
+    <Border Background="{DynamicResource SidebarBrush}"
+            BorderBrush="{DynamicResource BorderBrushSoft}"
+            BorderThickness="0,0,1,0">
+        <DockPanel LastChildFill="True">
+            <!-- Top Navigation Items -->
+            <StackPanel DockPanel.Dock="Top" Margin="8,10,8,0">
+                <ctrl:NavItem x:Name="NavHome" Text="Home" IconData="{DynamicResource IconHome}" IsSelected="True" Click="Nav_Click"/>
+                <ctrl:NavItem x:Name="NavScan" Text="Scan &amp; Recover" IconData="{DynamicResource IconSearch}" Click="Nav_Click"/>
+                <ctrl:NavItem x:Name="NavCarver" Text="File Carver" IconData="{DynamicResource IconFileCarver}" Click="Nav_Click"/>
+                <ctrl:NavItem x:Name="NavPartition" Text="Partition Manager" IconData="{DynamicResource IconPartition}" Click="Nav_Click"/>
+                <ctrl:NavItem x:Name="NavCluster" Text="Cluster Map" IconData="{DynamicResource IconCluster}" Click="Nav_Click"/>
+                <ctrl:NavItem x:Name="NavImageTools" Text="Image Tools" IconData="{DynamicResource IconImageTools}" Click="Nav_Click"/>
+                <ctrl:NavItem x:Name="NavSettings" Text="Settings" IconData="{DynamicResource IconSettings}" Click="Nav_Click"/>
+            </StackPanel>
+
+            <!-- Bottom System & Hardware Status Section -->
+            <StackPanel DockPanel.Dock="Bottom" Margin="10,0,10,10">
+                
+                <!-- Physical Device Information Card -->
+                <Border Background="{DynamicResource SurfaceBrush}"
+                        BorderBrush="{DynamicResource BorderBrushSoft}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="11,10"
+                        Margin="0,0,0,10">
+                    <StackPanel>
+                        <!-- Header with drive icon -->
+                        <Grid Margin="0,0,0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Width="26" Height="26"
+                                    CornerRadius="6"
+                                    Background="{DynamicResource AccentSoftBrush}"
+                                    BorderBrush="{DynamicResource AccentBrush}"
+                                    BorderThickness="1"
+                                    Margin="0,0,8,0">
+                                <Path Data="{DynamicResource IconHardDrive}"
+                                      Fill="{DynamicResource AccentBrush}"
+                                      Width="13" Height="13"
+                                      Stretch="Uniform"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                            </Border>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBlock Text="Physical Device"
+                                           FontSize="11"
+                                           FontWeight="SemiBold"
+                                           Foreground="{DynamicResource TextBrush}"/>
+                                <TextBlock x:Name="DriveIdText"
+                                           Text="\\.\PhysicalDrive0"
+                                           FontSize="9.5"
+                                           Foreground="{DynamicResource MutedTextBrush}"
+                                           TextTrimming="CharacterEllipsis"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Device Properties with theme-bound colors -->
+                        <Grid Margin="0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Model:" FontSize="10" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="DriveModelText" Grid.Column="1" Text="Generic Storage" FontSize="10" FontWeight="Medium" Foreground="{DynamicResource TextBrush}" Margin="4,0,0,0" TextTrimming="CharacterEllipsis"/>
+                        </Grid>
+                        <Grid Margin="0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Size:" FontSize="10" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="DriveSizeText" Grid.Column="1" Text="0 GB" FontSize="10" FontWeight="Medium" Foreground="{DynamicResource TextBrush}" Margin="4,0,0,0"/>
+                        </Grid>
+                        <Grid Margin="0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Serial:" FontSize="10" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="DriveSerialText" Grid.Column="1" Text="N/A" FontSize="10" Foreground="{DynamicResource TextBrush}" Margin="4,0,0,0" TextTrimming="CharacterEllipsis"/>
+                        </Grid>
+                        <Grid Margin="0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Status:" FontSize="10" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="DriveStatusText" Grid.Column="1" Text="Healthy" FontSize="10" Foreground="{DynamicResource SuccessBrush}" FontWeight="SemiBold" Margin="4,0,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Host Computer Information Card -->
+                <Border Background="{DynamicResource SurfaceAltBrush}"
+                        BorderBrush="{DynamicResource BorderBrushSoft}"
+                        BorderThickness="1"
+                        CornerRadius="7"
+                        Padding="10,8"
+                        Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Width="20" Height="20" CornerRadius="4" Background="{DynamicResource ControlBrush}" Margin="0,0,8,0" VerticalAlignment="Center">
+                            <Path Data="{DynamicResource IconSettings}" Fill="{DynamicResource MutedTextBrush}" Width="11" Height="11" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock x:Name="HostPcText" Text="DESKTOP-PC" FontSize="10.5" FontWeight="SemiBold" Foreground="{DynamicResource TextBrush}" TextTrimming="CharacterEllipsis"/>
+                            <TextBlock x:Name="HostOsText" Text="Windows 64-bit" FontSize="9" Foreground="{DynamicResource MutedTextBrush}" TextTrimming="CharacterEllipsis" Margin="0,1,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Live Readiness Status Dot -->
+                <StackPanel Orientation="Horizontal" Margin="4,0,0,0" VerticalAlignment="Center">
+                    <Ellipse x:Name="StatusDot" Width="7" Height="7" Fill="{DynamicResource SuccessBrush}" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                    <TextBlock x:Name="StatusText" Text="Ready" FontSize="11.5" FontWeight="Medium" Foreground="{DynamicResource MutedTextBrush}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Spacer -->
+            <Border Background="Transparent"/>
+        </DockPanel>
+    </Border>
+</UserControl>

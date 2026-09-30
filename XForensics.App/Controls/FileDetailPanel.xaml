@@ -1,0 +1,150 @@
+<UserControl x:Class="XForensics.App.Controls.FileDetailPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border Background="{DynamicResource SurfaceBrush}"
+            BorderBrush="{DynamicResource BorderBrushSoft}"
+            BorderThickness="1"
+            CornerRadius="8"
+            Padding="11,10">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <!-- File Name Header with Icon -->
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Path x:Name="FileHeaderIcon"
+                          Data="{DynamicResource IconFileImage}"
+                          Fill="{DynamicResource AccentBrush}"
+                          Width="14" Height="14"
+                          Stretch="Uniform"
+                          VerticalAlignment="Center"
+                          Margin="0,0,8,0"/>
+                    <TextBlock x:Name="DetailFileName"
+                               Grid.Column="1"
+                               Text="photo_20240518.jpg"
+                               FontSize="13"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextBrush}"
+                               VerticalAlignment="Center"
+                               TextTrimming="CharacterEllipsis"/>
+                </Grid>
+
+                <!-- Image Preview Container -->
+                <Border Background="{DynamicResource WindowBgBrush}"
+                        BorderBrush="{DynamicResource BorderBrushSoft}"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Height="130"
+                        Margin="0,0,0,11"
+                        ClipToBounds="True">
+                    <Grid>
+                        <Image x:Name="DetailPreviewImage"
+                               Source="/XForensics.App;component/Assets/sample_preview.jpg"
+                               Stretch="UniformToFill"/>
+                        <Border x:Name="DetailNoPreviewOverlay"
+                                Background="{DynamicResource SurfaceAltBrush}"
+                                Opacity="0.85"
+                                Visibility="Collapsed">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Path Data="{DynamicResource IconEye}" Fill="{DynamicResource MutedTextBrush}" Width="20" Height="20" Stretch="Uniform" HorizontalAlignment="Center" Margin="0,0,0,6"/>
+                                <TextBlock Text="No preview available" Foreground="{DynamicResource MutedTextBrush}" FontSize="11" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Quick Metadata -->
+                <StackPanel Margin="0,0,0,14">
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="70"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <TextBlock Text="Size:" FontSize="11" Foreground="{DynamicResource MutedTextBrush}"/>
+                        <TextBlock x:Name="DetailSizeText" Grid.Column="1" Text="4.8 MB (5,033,216 bytes)" FontSize="11" Foreground="{DynamicResource TextBrush}" TextTrimming="CharacterEllipsis"/>
+                    </Grid>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="70"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <TextBlock Text="Modified:" FontSize="11" Foreground="{DynamicResource MutedTextBrush}"/>
+                        <TextBlock x:Name="DetailModifiedText" Grid.Column="1" Text="2025-05-18 20:31:12" FontSize="11" Foreground="{DynamicResource TextBrush}"/>
+                    </Grid>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="70"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <TextBlock Text="Status:" FontSize="11" Foreground="{DynamicResource MutedTextBrush}"/>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Ellipse x:Name="DetailStatusDot" Width="6" Height="6" Fill="{DynamicResource SuccessBrush}" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                            <TextBlock x:Name="DetailStatusText" Text="Good" FontSize="11" Foreground="{DynamicResource TextBrush}"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="70"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                        <TextBlock Text="Path:" FontSize="11" Foreground="{DynamicResource MutedTextBrush}"/>
+                        <TextBlock x:Name="DetailPathText" Grid.Column="1" Text="\Users\Administrator\Documents\Photos\photo_20240518.jpg" FontSize="11" Foreground="{DynamicResource TextBrush}" TextWrapping="Wrap"/>
+                    </Grid>
+                </StackPanel>
+
+                <!-- Action Buttons: Preview & Save -->
+                <Grid Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="8"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Preview Button (Accent Style) -->
+                    <Button Grid.Column="0" Click="Preview_Click" Style="{DynamicResource AccentButton}" Padding="0,7" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Path Data="{DynamicResource IconEye}" Fill="White" Width="13" Height="13" Stretch="Uniform" Margin="0,0,6,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Preview" FontSize="12" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Save Button (Standard Control Style) -->
+                    <Button Grid.Column="2" Click="Save_Click" Padding="0,7" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Path Data="{DynamicResource IconSave}" Fill="{DynamicResource MutedTextBrush}" Width="13" Height="13" Stretch="Uniform" Margin="0,0,6,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Save..." FontSize="12" FontWeight="Medium" Foreground="{DynamicResource TextBrush}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+
+                <!-- Detailed File Info Card -->
+                <Border Background="{DynamicResource WindowBgBrush}" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="1" CornerRadius="6" Padding="12">
+                    <StackPanel>
+                        <TextBlock Text="File Info" FontSize="12" FontWeight="SemiBold" Foreground="{DynamicResource TextBrush}" Margin="0,0,0,10"/>
+
+                        <Grid Margin="0,2.5">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="90"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Text="Signature:" FontSize="10.5" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="InfoSignatureText" Grid.Column="1" Text="JPEG (FF D8 FF)" FontSize="10.5" Foreground="{DynamicResource TextBrush}" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Grid Margin="0,2.5">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="90"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Text="Dimensions:" FontSize="10.5" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="InfoDimensionsText" Grid.Column="1" Text="1920 x 1080" FontSize="10.5" Foreground="{DynamicResource TextBrush}" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Grid Margin="0,2.5">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="90"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Text="Created:" FontSize="10.5" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="InfoCreatedText" Grid.Column="1" Text="2025-05-18 20:31:12" FontSize="10.5" Foreground="{DynamicResource TextBrush}" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Grid Margin="0,2.5">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="90"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Text="Last Accessed:" FontSize="10.5" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="InfoAccessedText" Grid.Column="1" Text="2025-05-20 10:15:46" FontSize="10.5" Foreground="{DynamicResource TextBrush}" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Grid Margin="0,2.5">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="90"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Text="Cluster Start:" FontSize="10.5" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="InfoClusterStartText" Grid.Column="1" Text="0x0005A3F2" FontSize="10.5" Foreground="{DynamicResource TextBrush}" HorizontalAlignment="Right"/>
+                        </Grid>
+                        <Grid Margin="0,2.5">
+                            <Grid.ColumnDefinitions><ColumnDefinition Width="90"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                            <TextBlock Text="Cluster Count:" FontSize="10.5" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <TextBlock x:Name="InfoClusterCountText" Grid.Column="1" Text="784" FontSize="10.5" Foreground="{DynamicResource TextBrush}" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

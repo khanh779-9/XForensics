@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="XForensics.Core/XForensics.Core.csproj" />
+  <Project Path="XForensics.App/XForensics.App.csproj" />
+</Solution>

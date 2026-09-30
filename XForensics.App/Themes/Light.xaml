@@ -1,0 +1,115 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Primary Palette Colors (Light Mode) -->
+    <Color x:Key="WindowBgColor">#F3F5F9</Color>
+    <Color x:Key="SurfaceCardColor">#FFFFFF</Color>
+    <Color x:Key="SurfaceCardSubtleColor">#F8FAFC</Color>
+    <Color x:Key="SidebarBgColor">#EAEFF5</Color>
+    <Color x:Key="BorderColor">#D5DDE8</Color>
+    <Color x:Key="BorderSubtleColor">#E2E8F0</Color>
+    <Color x:Key="AccentColor">#2563EB</Color>
+    <Color x:Key="AccentHoverColor">#1D4ED8</Color>
+    <Color x:Key="AccentSoftColor">#DBEAFE</Color>
+    <Color x:Key="AccentSelectedColor">#BFDBFE</Color>
+    <Color x:Key="TextPrimaryColor">#0F172A</Color>
+    <Color x:Key="TextSecondaryColor">#475569</Color>
+    <Color x:Key="TextMutedColor">#94A3B8</Color>
+    <Color x:Key="StatusGoodColor">#059669</Color>
+    <Color x:Key="StatusWarningColor">#D97706</Color>
+    <Color x:Key="StatusDangerColor">#DC2626</Color>
+
+    <!-- Standardized Brushes (VietType Compatible Names) -->
+    <SolidColorBrush x:Key="WindowBrush" Color="{StaticResource WindowBgColor}"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource SurfaceCardColor}"/>
+    <SolidColorBrush x:Key="SurfaceAltBrush" Color="{StaticResource SurfaceCardSubtleColor}"/>
+    <SolidColorBrush x:Key="SidebarBrush" Color="{StaticResource SidebarBgColor}"/>
+    <SolidColorBrush x:Key="SidebarHoverBrush" Color="#DBEAFE"/>
+    <SolidColorBrush x:Key="SidebarItemHoverBrush" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="SidebarIconBrush" Color="#64748B"/>
+    <SolidColorBrush x:Key="SidebarIconHoverBrush" Color="#1E293B"/>
+    <SolidColorBrush x:Key="SidebarTextBrush" Color="#475569"/>
+    <SolidColorBrush x:Key="SidebarTextHoverBrush" Color="#0F172A"/>
+    <SolidColorBrush x:Key="SidebarTextActiveBrush" Color="#2563EB"/>
+    <SolidColorBrush x:Key="MenuHoverBrush" Color="#EFF6FF"/>
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextPrimaryColor}"/>
+    <SolidColorBrush x:Key="MutedTextBrush" Color="{StaticResource TextSecondaryColor}"/>
+    <SolidColorBrush x:Key="BorderBrushSoft" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource AccentHoverColor}"/>
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="{StaticResource AccentSoftColor}"/>
+    <SolidColorBrush x:Key="AccentSelectedBrush" Color="{StaticResource AccentSelectedColor}"/>
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource StatusGoodColor}"/>
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource StatusDangerColor}"/>
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource StatusWarningColor}"/>
+    <SolidColorBrush x:Key="ControlBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="InputBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="InputBorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="InverseTextBrush" Color="#FFFFFF"/>
+
+    <!-- Backward-Compatible & Specialized FATX Brushes -->
+    <SolidColorBrush x:Key="WindowBgBrush" Color="{StaticResource WindowBgColor}"/>
+    <SolidColorBrush x:Key="BgBrush" Color="{StaticResource WindowBgColor}"/>
+    <SolidColorBrush x:Key="SidebarBgBrush" Color="{StaticResource SidebarBgColor}"/>
+    <SolidColorBrush x:Key="SurfaceCardBrush" Color="{StaticResource SurfaceCardColor}"/>
+    <SolidColorBrush x:Key="PanelBrush" Color="{StaticResource SurfaceCardColor}"/>
+    <SolidColorBrush x:Key="SurfaceCardSubtleBrush" Color="{StaticResource SurfaceCardSubtleColor}"/>
+    <SolidColorBrush x:Key="Panel2Brush" Color="{StaticResource SurfaceCardSubtleColor}"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="BorderSubtleBrush" Color="{StaticResource BorderSubtleColor}"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}"/>
+    <SolidColorBrush x:Key="MutedBrush" Color="{StaticResource TextSecondaryColor}"/>
+    <SolidColorBrush x:Key="TextMutedBrush" Color="{StaticResource TextMutedColor}"/>
+    <SolidColorBrush x:Key="StatusGoodBrush" Color="{StaticResource StatusGoodColor}"/>
+    <SolidColorBrush x:Key="StatusWarningBrush" Color="{StaticResource StatusWarningColor}"/>
+    <SolidColorBrush x:Key="StatusDangerBrush" Color="{StaticResource StatusDangerColor}"/>
+
+    <!-- Status Background & Border Brushes -->
+    <SolidColorBrush x:Key="StatusGoodBgBrush" Color="#ECFDF5"/>
+    <SolidColorBrush x:Key="StatusGoodBorderBrush" Color="#A7F3D0"/>
+    <SolidColorBrush x:Key="StatusWarningBgBrush" Color="#FFFBEB"/>
+    <SolidColorBrush x:Key="StatusWarningBorderBrush" Color="#FDE68A"/>
+    <SolidColorBrush x:Key="StatusDangerBgBrush" Color="#FEF2F2"/>
+    <SolidColorBrush x:Key="StatusDangerBorderBrush" Color="#FECACA"/>
+
+    <!-- Cluster Map Colors -->
+    <SolidColorBrush x:Key="ClusterUsedBrush" Color="#2563EB"/>
+    <SolidColorBrush x:Key="ClusterFreeBrush" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="ClusterDeletedBrush" Color="#EF4444"/>
+    <SolidColorBrush x:Key="ClusterBadBrush" Color="#F59E0B"/>
+
+    <!-- Control Specific Colors -->
+    <SolidColorBrush x:Key="TopBarBgBrush" Color="#F1F4F9"/>
+    <SolidColorBrush x:Key="TitleBarBgBrush" Color="#E8ECF2"/>
+    <SolidColorBrush x:Key="InputBgBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ButtonBgBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ButtonHoverBrush" Color="#F1F5F9"/>
+    <SolidColorBrush x:Key="ButtonPressedBrush" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="RowHoverBrush" Color="#F1F5F9"/>
+    <SolidColorBrush x:Key="RowSelectedBrush" Color="#DBEAFE"/>
+    <SolidColorBrush x:Key="RowSelectedInactiveBrush" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="TableHeaderBrush" Color="#F1F5F9"/>
+
+    <!-- System Selection Overrides (prevents WPF default inversion when inactive) -->
+    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#DBEAFE"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#0F172A"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="#0F172A"/>
+
+    <!-- Caption Buttons Specific -->
+    <SolidColorBrush x:Key="CaptionBtnHoverBrush" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="CaptionCloseHoverBrush" Color="#E81123"/>
+
+    <!-- File Type Colors -->
+    <SolidColorBrush x:Key="FileFolderBrush" Color="#D97706"/>
+    <SolidColorBrush x:Key="FileWordBrush" Color="#2563EB"/>
+    <SolidColorBrush x:Key="FilePhotoshopBrush" Color="#0284C7"/>
+    <SolidColorBrush x:Key="FileDatabaseBrush" Color="#0891B2"/>
+    <SolidColorBrush x:Key="FileImageBrush" Color="#6366F1"/>
+    <SolidColorBrush x:Key="FilePptBrush" Color="#EA580C"/>
+    <SolidColorBrush x:Key="FileZipBrush" Color="#CA8A04"/>
+    <SolidColorBrush x:Key="FileVideoBrush" Color="#9333EA"/>
+    <SolidColorBrush x:Key="FileDefaultBrush" Color="#64748B"/>
+
+</ResourceDictionary>
