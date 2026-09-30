@@ -93,9 +93,9 @@
         <!-- Main Split: Folder Tree on Left, DataGrid on Right -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="205" MinWidth="160"/>
+                <ColumnDefinition Width="180" MinWidth="140"/>
                 <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*" MinWidth="320"/>
+                <ColumnDefinition Width="*" MinWidth="300"/>
             </Grid.ColumnDefinitions>
 
             <!-- Tree View in Card -->

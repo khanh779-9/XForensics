@@ -4,7 +4,7 @@
         xmlns:ctrl="clr-namespace:XForensics.App.Controls"
         Title="XForensics"
         Subtitle="Storage Forensics &amp; Advanced Data Recovery Suite"
-        Width="1260" Height="750" MinWidth="1040" MinHeight="620"
+        Width="1140" Height="680" MinWidth="960" MinHeight="560"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" ResizeMode="CanResize"
         UseLayoutRounding="True" SnapsToDevicePixels="True"
@@ -15,7 +15,7 @@
     <!-- Window Main Layout: Dedicated Top Toolbar Row + Workspace Body Below -->
     <Grid Background="{DynamicResource WindowBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
+            <RowDefinition Height="44"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -24,14 +24,14 @@
                 Background="{DynamicResource TopBarBgBrush}"
                 BorderBrush="{DynamicResource BorderBrushSoft}"
                 BorderThickness="0,0,0,1"
-                Padding="12,0,12,0">
+                Padding="10,0,10,0">
             <ctrl:DriveToolbar x:Name="TopToolbar"/>
         </Border>
 
         <!-- Row 1: Workspace Grid (Left Sidebar + Center/Right Work Canvas) -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="205"/>
+                <ColumnDefinition Width="185"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -39,35 +39,35 @@
             <ctrl:SidebarNavigation Grid.Column="0" x:Name="SidebarNav"/>
 
             <!-- Center & Right Working Area -->
-            <Grid Grid.Column="1" Margin="12,10,12,12">
+            <Grid Grid.Column="1" Margin="10,8,10,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="165"/>
+                    <RowDefinition Height="145"/>
                 </Grid.RowDefinitions>
 
                 <!-- Upper Split: File Explorer + Right Detail Panel -->
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="285"/>
+                        <ColumnDefinition Width="255"/>
                     </Grid.ColumnDefinitions>
 
                     <!-- Center: File Explorer View (Sub-tabs, Folder Tree, File Grid, Pagination) -->
                     <ctrl:FileExplorerView Grid.Column="0" x:Name="ExplorerView"/>
 
                     <!-- Right: File Details, Image Preview, File Info -->
-                    <ctrl:FileDetailPanel Grid.Column="1" x:Name="DetailPanel" Margin="10,0,0,0"/>
+                    <ctrl:FileDetailPanel Grid.Column="1" x:Name="DetailPanel" Margin="8,0,0,0"/>
                 </Grid>
 
                 <!-- Lower Split: Scan Log Terminal + Cluster Map Visualizer -->
-                <Grid Grid.Row="1" Margin="0,10,0,0">
+                <Grid Grid.Row="1" Margin="0,8,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="460"/>
+                        <ColumnDefinition Width="390"/>
                     </Grid.ColumnDefinitions>
 
                     <!-- Bottom Left: Scan Log Terminal -->
-                    <ctrl:ScanLogPanel Grid.Column="0" x:Name="LogPanel" Margin="0,0,10,0"/>
+                    <ctrl:ScanLogPanel Grid.Column="0" x:Name="LogPanel" Margin="0,0,8,0"/>
 
                     <!-- Bottom Right: Cluster Map Visualizer with Legend -->
                     <ctrl:ClusterMapVisualizer Grid.Column="1" x:Name="ClusterMap"/>
