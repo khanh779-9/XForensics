@@ -4,28 +4,38 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="38"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="34"/>
         </Grid.RowDefinitions>
 
         <!-- Top Navigation Sub-Tabs -->
         <Border Grid.Row="0" BorderBrush="{DynamicResource BorderBrushSoft}" BorderThickness="0,0,0,1" Margin="0,0,0,8">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,0,0,-1">
                 <RadioButton x:Name="TabFileExplorer" Content="File Explorer" IsChecked="True" Click="SubTab_Click" Margin="0,0,22,0">
                     <RadioButton.Template>
                         <ControlTemplate TargetType="RadioButton">
-                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,8" Cursor="Hand">
-                                <TextBlock x:Name="TabText" Text="{TemplateBinding Content}" FontSize="12.5" FontWeight="SemiBold" Foreground="{DynamicResource MutedTextBrush}"/>
+                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,4,4,8" Cursor="Hand" Background="Transparent">
+                                <TextBlock x:Name="TabText" Text="{TemplateBinding Content}" FontSize="12.5" FontWeight="SemiBold" Foreground="{DynamicResource AccentBrush}"/>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsChecked" Value="True">
-                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentHoverBrush}"/>
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="SemiBold"/>
                                 </Trigger>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="Transparent"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource MutedTextBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="Medium"/>
                                 </Trigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsChecked" Value="False"/>
+                                        <Condition Property="IsMouseOver" Value="True"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                </MultiTrigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </RadioButton.Template>
@@ -34,17 +44,27 @@
                 <RadioButton x:Name="TabRecoveryCandidates" Content="Recovery Candidates" Click="SubTab_Click" Margin="0,0,22,0">
                     <RadioButton.Template>
                         <ControlTemplate TargetType="RadioButton">
-                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,8" Cursor="Hand">
+                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,4,4,8" Cursor="Hand" Background="Transparent">
                                 <TextBlock x:Name="TabText" Text="{TemplateBinding Content}" FontSize="12.5" FontWeight="Medium" Foreground="{DynamicResource MutedTextBrush}"/>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsChecked" Value="True">
-                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentHoverBrush}"/>
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="SemiBold"/>
                                 </Trigger>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="Transparent"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource MutedTextBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="Medium"/>
                                 </Trigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsChecked" Value="False"/>
+                                        <Condition Property="IsMouseOver" Value="True"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                </MultiTrigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </RadioButton.Template>
@@ -53,17 +73,27 @@
                 <RadioButton x:Name="TabFileCarver" Content="File Carver" Click="SubTab_Click" Margin="0,0,22,0">
                     <RadioButton.Template>
                         <ControlTemplate TargetType="RadioButton">
-                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,8" Cursor="Hand">
+                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,4,4,8" Cursor="Hand" Background="Transparent">
                                 <TextBlock x:Name="TabText" Text="{TemplateBinding Content}" FontSize="12.5" FontWeight="Medium" Foreground="{DynamicResource MutedTextBrush}"/>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsChecked" Value="True">
-                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentHoverBrush}"/>
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="SemiBold"/>
                                 </Trigger>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="Transparent"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource MutedTextBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="Medium"/>
                                 </Trigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsChecked" Value="False"/>
+                                        <Condition Property="IsMouseOver" Value="True"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                </MultiTrigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </RadioButton.Template>
@@ -72,17 +102,27 @@
                 <RadioButton x:Name="TabClusterMap" Content="Cluster Map" Click="SubTab_Click">
                     <RadioButton.Template>
                         <ControlTemplate TargetType="RadioButton">
-                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,8" Cursor="Hand">
+                            <Border x:Name="TabBorder" BorderBrush="Transparent" BorderThickness="0,0,0,2" Padding="4,4,4,8" Cursor="Hand" Background="Transparent">
                                 <TextBlock x:Name="TabText" Text="{TemplateBinding Content}" FontSize="12.5" FontWeight="Medium" Foreground="{DynamicResource MutedTextBrush}"/>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsChecked" Value="True">
-                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentHoverBrush}"/>
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="SemiBold"/>
                                 </Trigger>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter TargetName="TabBorder" Property="BorderBrush" Value="Transparent"/>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource MutedTextBrush}"/>
+                                    <Setter TargetName="TabText" Property="FontWeight" Value="Medium"/>
                                 </Trigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsChecked" Value="False"/>
+                                        <Condition Property="IsMouseOver" Value="True"/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter TargetName="TabText" Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                                </MultiTrigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </RadioButton.Template>

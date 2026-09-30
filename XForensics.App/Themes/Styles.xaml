@@ -798,7 +798,7 @@
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="DGR_Border" Property="Background" Value="{DynamicResource RowSelectedBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource InverseTextBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource RowSelectedTextBrush}"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -806,7 +806,7 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="False"/>
                             </MultiTrigger.Conditions>
                             <Setter TargetName="DGR_Border" Property="Background" Value="{DynamicResource RowSelectedBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource InverseTextBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource RowSelectedTextBrush}"/>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

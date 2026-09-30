@@ -89,6 +89,7 @@
     <SolidColorBrush x:Key="RowHoverBrush" Color="#121C2E"/>
     <SolidColorBrush x:Key="RowSelectedBrush" Color="#1B2E4E"/>
     <SolidColorBrush x:Key="RowSelectedInactiveBrush" Color="#16243D"/>
+    <SolidColorBrush x:Key="RowSelectedTextBrush" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="TableHeaderBrush" Color="#080D17"/>
 
     <!-- System Selection Overrides (prevents WPF default whiteout when inactive) -->

@@ -30,7 +30,7 @@
     <SolidColorBrush x:Key="SidebarIconHoverBrush" Color="#1E293B"/>
     <SolidColorBrush x:Key="SidebarTextBrush" Color="#475569"/>
     <SolidColorBrush x:Key="SidebarTextHoverBrush" Color="#0F172A"/>
-    <SolidColorBrush x:Key="SidebarTextActiveBrush" Color="#2563EB"/>
+    <SolidColorBrush x:Key="SidebarTextActiveBrush" Color="#1D4ED8"/>
     <SolidColorBrush x:Key="MenuHoverBrush" Color="#EFF6FF"/>
     <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextPrimaryColor}"/>
     <SolidColorBrush x:Key="MutedTextBrush" Color="{StaticResource TextSecondaryColor}"/>
@@ -89,6 +89,7 @@
     <SolidColorBrush x:Key="RowHoverBrush" Color="#F1F5F9"/>
     <SolidColorBrush x:Key="RowSelectedBrush" Color="#DBEAFE"/>
     <SolidColorBrush x:Key="RowSelectedInactiveBrush" Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="RowSelectedTextBrush" Color="#0F172A"/>
     <SolidColorBrush x:Key="TableHeaderBrush" Color="#F1F5F9"/>
 
     <!-- System Selection Overrides (prevents WPF default inversion when inactive) -->
